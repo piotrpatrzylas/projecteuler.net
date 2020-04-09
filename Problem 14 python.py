@@ -11,3 +11,36 @@
 # Which starting number, under one million, produces the longest chain?
 # NOTE: Once the chain starts the terms are allowed to go above one million.
 # =============================================================================
+
+
+def odd(n):
+    return (n*3)+1
+
+
+def even(n):
+    return n/2
+
+
+def collatz(n, counter = 1):
+    if n == 1:
+        return counter
+    else:
+        if n % 2 == 0:
+            return collatz(even(n), counter+1)
+        else:
+            return collatz(odd(n), counter+1)
+
+
+def longest_chain(seq):
+    max_val = 1
+    ind = 1
+    for i in range(1, seq+1):
+        curr_val = collatz(i)
+        if curr_val > max_val:
+            max_val = curr_val
+            ind = i
+    return ind
+
+
+print(longest_chain(1000000))
+# 837799
