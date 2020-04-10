@@ -11,8 +11,6 @@
 # Which starting number, under one million, produces the longest chain?
 # NOTE: Once the chain starts the terms are allowed to go above one million.
 # =============================================================================
-
-
 def odd(n):
     return (n*3)+1
 
@@ -43,4 +41,3 @@ def longest_chain(seq):
 
 
 print(longest_chain(1000000))
-# 837799
